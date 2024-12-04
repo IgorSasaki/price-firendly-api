@@ -1,15 +1,13 @@
 import { Router } from 'express'
 
-import CreateInvoiceService from '../services/Invoice/CreateInvoice/index.service'
+import AuthRouter from './auth.routes'
+import InvoicesRouter from './invoices.routes'
+import UserRouter from './users.routes'
 
 const AppRouter = Router()
 
-AppRouter.post('/invoice', async (request, response) => {
-  const requestBody = request.body
-
-  const responseData = await CreateInvoiceService.create(requestBody)
-
-  response.json(responseData)
-})
+AppRouter.use('/auth', AuthRouter)
+AppRouter.use('/invoices', InvoicesRouter)
+AppRouter.use('/users', UserRouter)
 
 export default AppRouter
