@@ -1,0 +1,24 @@
+createInvoice:
+  handler: src/server.handler
+  events:
+    - http:
+        path: invoices
+        method: post
+        cors:
+          origin: '*'
+createUser:
+  handler: src/server.handler
+  events:
+    - http:
+        path: users
+        method: post
+        cors:
+          origin: '*'
+UpdateUser:
+  handler: src/server.handler
+  events:
+    - http:
+        path: users
+        method: put
+        cors:
+          origin: '*'

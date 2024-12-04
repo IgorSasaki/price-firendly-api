@@ -1,4 +1,4 @@
-service: price-firendly-api
+service: price-friendly-api
 org: sasakitecnologia
 
 provider:
@@ -28,6 +28,7 @@ provider:
 
 package:
   individually: true
+  excludeDevDependencies: true
 
 plugins:
   - serverless-dotenv-plugin
@@ -43,12 +44,6 @@ custom:
     includeLayers: true
     number: 3
 
-functions:
-  createInvoice:
-    handler: src/server.handler
-    events:
-      - http:
-          path: /invoice
-          method: post
-          cors:
-            origin: '*'
+functions: ${file(./src/resources/functions.yml)}
+
+resources: ${file(./src/resources/database.yml)}
