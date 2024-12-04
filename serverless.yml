@@ -1,4 +1,4 @@
-service: nf-processor
+service: price-firendly-api
 org: sasakitecnologia
 
 provider:
